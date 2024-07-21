@@ -1,0 +1,55 @@
+<form (submit)="handleSubmit()" [formGroup]="postForm">
+  <fieldset>
+    <label for="post-id">*Post Id:</label>
+    <input type="number" id="post-id" formControlName="id" />
+    @if (id.invalid && id.touched) {
+    <p class="form-error">Id is required</p>
+    }
+  </fieldset>
+    <fieldset>
+      <label for="post-title">*Post Title:</label>
+      <input type="text" id="post-title" formControlName="title" />
+      @if (title.invalid && title.touched) {
+      <p class="form-error">Title is required</p>
+      }
+    </fieldset>
+    <fieldset>
+      <label for="author">*Author:</label>
+      <input type="text" id="author" formControlName="author" />
+  
+      <!-- .hasError(Nombre del Validator) -->
+      @if (author.hasError("required") && author.touched) {
+      <p class="form-error">Author is required</p>
+      } @else if (author.hasError("max") && author.touched) {
+      <p class="form-error">Author cannot be longer than 300 characters</p>
+      }
+    </fieldset>
+
+    <fieldset>
+      <label for="text">*Text:</label>
+      <input type="text" id="text" formControlName="text" />
+  
+      <!-- .hasError(Nombre del Validator) -->
+      @if (text.hasError("required") && text.touched) {
+      <p class="form-error">Text is required</p>
+      } @else if (text.hasError("max") && text.touched) {
+      <p class="form-error">Text cannot be longer than 300 characters</p>
+      }
+    </fieldset>
+
+
+    <fieldset>
+      <label for="publishDate">Publish Date::</label>
+      <input  type="date" id="publishDate" formControlName="publishDate" />
+    </fieldset>
+    <button [disabled]="postForm.invalid">Create Post</button>
+  </form>
+
+
+  
+<div *ngIf="post" class="post">
+  <h2>{{ post.id }}</h2>
+  <h3>{{ post.title }}</h3>
+  <h3>{{ post.author }}</h3>
+  <h3>{{ post.publishDate }}</h3>
+</div>

@@ -1,0 +1,15 @@
+<ul class="post_container">
+  @for (post of postService.posts; track $index) {
+    <li>
+      <a [routerLink]="['/detail', post.id]" class="link">
+        <div class="post_card">
+          <h2>{{ post.id }}</h2>
+          <h3>{{ post.title }}</h3>
+          <h3>{{ post.author }}</h3>
+          <p>{{ post.text }}</p>
+          <h3>{{ post.publishDate }}</h3>
+        </div>
+      </a>
+    </li>
+  }
+</ul> 

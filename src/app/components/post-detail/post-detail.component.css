@@ -1,0 +1,29 @@
+.post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .post h2, .post h3 {
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .post h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+  
+  .post h3 {
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+  
+  .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
